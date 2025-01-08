@@ -25,9 +25,57 @@ src:
       - 再利用可能コンポーネント
       - グローバル状態の一元管理
       - pnpmによる高速な依存関係管理
-    dependency: []
-    agent: "claude-3-5-sonnet-20241022"
-    api: []
+
+      ディレクトリ構成:
+      ├── .github/              # GitHub設定
+      │   └── workflows/        # GitHub Actions
+      │
+      ├── app/                  # Next.js アプリケーションルート
+      │   ├── (auth)/          # 認証関連ページ
+      │   ├── (dashboard)/     # ダッシュボード関連ページ
+      │   ├── api/             # APIルート
+      │   └── layout.tsx       # ルートレイアウト
+      │
+      ├── components/          # コンポーネント
+      │   ├── ui/             # 再利用可能なUIコンポーネント
+      │   ├── forms/          # フォームコンポーネント
+      │   └── layouts/        # レイアウトコンポーネント
+      │
+      ├── lib/                # ユーティリティ
+      │   ├── utils/          # 汎用ユーティリティ
+      │   ├── hooks/          # カスタムフック
+      │   └── types/          # 型定義
+      │
+      ├── stores/             # Zustandストア
+      │   ├── auth.ts        # 認証状態
+      │   └── ui.ts          # UI状態
+      │
+      ├── styles/             # スタイル定義
+      │   └── globals.css    # グローバルスタイル
+      │
+      ├── prisma/            # Prisma設定
+      │   ├── schema.prisma  # データベーススキーマ
+      │   └── migrations/    # マイグレーションファイル
+      │
+      ├── config/            # 設定ファイル
+      │   ├── env.ts         # 環境変数
+      │   └── site.ts       # サイト全般の設定
+      │
+      ├── public/           # 静的ファイル
+      │   ├── images/      # 画像ファイル
+      │   └── fonts/       # フォントファイル
+      │
+      ├── .env             # 環境変数
+      ├── .env.local       # ローカル環境変数
+      ├── .env.development # 開発環境変数
+      ├── .env.production  # 本番環境変数
+      ├── .eslintrc.json  # ESLint設定
+      ├── .prettierrc     # Prettier設定
+      ├── .gitignore      # Git除外設定
+      ├── package.json    # プロジェクト設定
+      ├── pnpm-lock.yaml  # 依存関係ロック
+      ├── tsconfig.json   # TypeScript設定
+      └── tailwind.config.ts # Tailwind設定
 
   app-template:
     next-app:
@@ -47,9 +95,6 @@ src:
         - クライアントコンポーネント
         - 状態管理
       dependency: []
-      agent: "claude-3-5-sonnet-20241022"
-      api: []
-
     database:
       prisma-schema:
         content: |-
@@ -59,9 +104,6 @@ src:
           - マイグレーション管理
           - シード機能
         dependency: []
-        agent: "claude-3-5-sonnet-20241022"
-        api: []
-
     validation:
       zod-schemas:
         content: |-
@@ -71,9 +113,6 @@ src:
           - 型推論連携
           - カスタムバリデーション
         dependency: []
-        agent: "claude-3-5-sonnet-20241022"
-        api: []
-
   utils:
     supabase:
       client.ts:
@@ -84,9 +123,6 @@ src:
           - ストレージ操作
           - RLS設定
         dependency: []
-        agent: "claude-3-5-sonnet-20241022"
-        api: []
-
     hooks:
       content: |-
         カスタムフック
@@ -95,8 +131,8 @@ src:
         - フォーム処理
         - UI状態管理
       dependency: []
-      agent: "claude-3-5-sonnet-20241022"
-      api: []
+      
+      
 
   components:
     ui:
@@ -107,8 +143,8 @@ src:
         - アニメーション
         - テーマ設定
       dependency: []
-      agent: "claude-3-5-sonnet-20241022"
-      api: []
+      
+      
 
     forms:
       content: |-
@@ -118,8 +154,8 @@ src:
         - エラーハンドリング
         - 動的フォーム
       dependency: []
-      agent: "claude-3-5-sonnet-20241022"
-      api: []
+      
+      
 
   config:
     env:
@@ -129,8 +165,8 @@ src:
         - API キー
         - 環境別設定
       dependency: []
-      agent: "claude-3-5-sonnet-20241022"
-      api: []
+      
+      
 
     tailwind:
       content: |-
@@ -139,8 +175,8 @@ src:
         - プラグイン設定
         - ユーティリティ拡張
       dependency: []
-      agent: "claude-3-5-sonnet-20241022"
-      api: []
+      
+      
 
     node:
       content: |-
@@ -157,9 +193,6 @@ src:
         - ロックファイル管理
         - キャッシュ最適化
       dependency: []
-      agent: "claude-3-5-sonnet-20241022"
-      api: []
-
     scripts:
       content: |-
         pnpmスクリプト定義
@@ -171,9 +204,6 @@ src:
         - マイグレーション
         - シード
       dependency: []
-      agent: "claude-3-5-sonnet-20241022"
-      api: []
-
   stores:
     content: |-
       Zustand ストア定義
@@ -182,5 +212,5 @@ src:
       - ミドルウェア
       - デバッグツール連携
     dependency: []
-    agent: "claude-3-5-sonnet-20241022"
-    api: []
+    
+    
