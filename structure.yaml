@@ -1,0 +1,186 @@
+src:
+  structure.yaml:
+    content: |-
+      Modern Full-Stack Development Template
+      
+      環境設定:
+      - Volta によるツールチェーン管理
+        - Node.js v20.x (LTS)
+        - pnpm v8.x
+      - Next.js + Supabase による高速開発環境
+      - 型安全性重視の設計
+      - スケーラブルなアーキテクチャ
+      
+      主要機能:
+      - フルスタック TypeScript
+      - データベース自動マイグレーション
+      - エンドツーエンドの型安全性
+      - モダンUI/UXデザイン
+      - 状態管理（Zustand）
+      
+      開発効率化戦略:
+      - スキーマ駆動開発
+      - 型推論による安全性
+      - コード自動生成
+      - 再利用可能コンポーネント
+      - グローバル状態の一元管理
+      - pnpmによる高速な依存関係管理
+    dependency: []
+    agent: "claude-3-5-sonnet-20241022"
+    api: []
+
+  app-template:
+    next-app:
+      content: |-
+        Next.js 14+ アプリケーション構成
+        - App Router
+        - Server Components
+        - TypeScript
+        - Tailwind CSS
+        - Shadcn UI
+        - Zustand
+        
+        機能:
+        - ルーティング
+        - レイアウトシステム
+        - サーバーアクション
+        - クライアントコンポーネント
+        - 状態管理
+      dependency: []
+      agent: "claude-3-5-sonnet-20241022"
+      api: []
+
+    database:
+      prisma-schema:
+        content: |-
+          Prisma スキーマ定義
+          - Supabase PostgreSQL 連携
+          - リレーション定義
+          - マイグレーション管理
+          - シード機能
+        dependency: []
+        agent: "claude-3-5-sonnet-20241022"
+        api: []
+
+    validation:
+      zod-schemas:
+        content: |-
+          Zod バリデーションスキーマ
+          - API入力検証
+          - フォームバリデーション
+          - 型推論連携
+          - カスタムバリデーション
+        dependency: []
+        agent: "claude-3-5-sonnet-20241022"
+        api: []
+
+  utils:
+    supabase:
+      client.ts:
+        content: |-
+          Supabase クライアント設定
+          - 認証管理
+          - リアルタイム購読
+          - ストレージ操作
+          - RLS設定
+        dependency: []
+        agent: "claude-3-5-sonnet-20241022"
+        api: []
+
+    hooks:
+      content: |-
+        カスタムフック
+        - データフェッチング
+        - 認証状態管理
+        - フォーム処理
+        - UI状態管理
+      dependency: []
+      agent: "claude-3-5-sonnet-20241022"
+      api: []
+
+  components:
+    ui:
+      content: |-
+        UI コンポーネント
+        - Tailwind + Shadcn UI
+        - レスポンシブデザイン
+        - アニメーション
+        - テーマ設定
+      dependency: []
+      agent: "claude-3-5-sonnet-20241022"
+      api: []
+
+    forms:
+      content: |-
+        フォームコンポーネント
+        - React Hook Form 統合
+        - Zod バリデーション
+        - エラーハンドリング
+        - 動的フォーム
+      dependency: []
+      agent: "claude-3-5-sonnet-20241022"
+      api: []
+
+  config:
+    env:
+      content: |-
+        環境変数設定
+        - Supabase 接続情報
+        - API キー
+        - 環境別設定
+      dependency: []
+      agent: "claude-3-5-sonnet-20241022"
+      api: []
+
+    tailwind:
+      content: |-
+        Tailwind 設定
+        - カスタムテーマ
+        - プラグイン設定
+        - ユーティリティ拡張
+      dependency: []
+      agent: "claude-3-5-sonnet-20241022"
+      api: []
+
+    node:
+      content: |-
+        Node.js 環境設定
+        - volta.json (Node.js, pnpm バージョン管理)
+          - プロジェクト固有のバージョン指定
+          - チーム間での一貫した環境
+        - .npmrc (pnpm設定)
+        - package.json
+        
+        pnpm workspace設定:
+        - 依存関係の共有
+        - モノレポ対応
+        - ロックファイル管理
+        - キャッシュ最適化
+      dependency: []
+      agent: "claude-3-5-sonnet-20241022"
+      api: []
+
+    scripts:
+      content: |-
+        pnpmスクリプト定義
+        - 開発環境起動
+        - ビルド
+        - テスト
+        - リント
+        - フォーマット
+        - マイグレーション
+        - シード
+      dependency: []
+      agent: "claude-3-5-sonnet-20241022"
+      api: []
+
+  stores:
+    content: |-
+      Zustand ストア定義
+      - アプリケーション状態
+      - 永続化設定
+      - ミドルウェア
+      - デバッグツール連携
+    dependency: []
+    agent: "claude-3-5-sonnet-20241022"
+    api: []
