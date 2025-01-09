@@ -1,22 +1,14 @@
-import { z } from 'zod'
+export const env = {
+  SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+} as const;
 
-const envSchema = z.object({
-  // Database/Supabase
-  NEXT_PUBLIC_SUPABASE_URL: z.string().url(),
-  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
-  
-  // Add other environment variables as needed
-  NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
-})
-
-// Validate environment variables at runtime
-const processEnv = {
-  NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
-  NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-  NODE_ENV: process.env.NODE_ENV,
+// 型の定義
+declare global {
+  namespace NodeJS {
+    interface ProcessEnv {
+      NEXT_PUBLIC_SUPABASE_URL: string;
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: string;
+    }
+  }
 }
-
-const env = envSchema.parse(processEnv)
-
-export default env
-

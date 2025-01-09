@@ -1,47 +1,30 @@
-import { useState, useEffect } from 'react'
-import { useSupabase } from './useSupabase'
-import { User, AuthError } from '@supabase/supabase-js'
+import { createClient } from '@/lib/utils/supabase/client';
+import { useRouter } from 'next/navigation';
+import { useCallback } from 'react';
+import { useAuthStore } from '@/stores/auth';
 
-export const useAuth = () => {
-  const { supabase } = useSupabase()
-  const [user, setUser] = useState<User | null>(null)
-  const [loading, setLoading] = useState(true)
+export function useAuth() {
+  const router = useRouter();
+  const supabase = createClient();
+  const { setUser } = useAuthStore();
 
-  useEffect(() => {
-    // Check active sessions and sets the user
-    const session = supabase.auth.getSession()
-    setUser(session?.user ?? null)
-    setLoading(false)
+  const signIn = useCallback(
+    async (provider: 'google' | 'github') => {
+      await supabase.auth.signInWithOAuth({
+        provider,
+        options: {
+          redirectTo: `${location.origin}/auth/callback`,
+        },
+      });
+    },
+    [supabase]
+  );
 
-    // Listen for changes on auth state
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null)
-      setLoading(false)
-    })
+  const signOut = useCallback(async () => {
+    await supabase.auth.signOut();
+    setUser(null);
+    router.push('/auth/login');
+  }, [supabase, router, setUser]);
 
-    return () => subscription.unsubscribe()
-  }, [])
-
-  const signIn = async (email: string, password: string): Promise<{ error: AuthError | null }> => {
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
-    return { error }
-  }
-
-  const signUp = async (email: string, password: string): Promise<{ error: AuthError | null }> => {
-    const { error } = await supabase.auth.signUp({ email, password })
-    return { error }
-  }
-
-  const signOut = async (): Promise<{ error: AuthError | null }> => {
-    const { error } = await supabase.auth.signOut()
-    return { error }
-  }
-
-  return {
-    user,
-    loading,
-    signIn,
-    signUp,
-    signOut,
-  }
+  return { signIn, signOut };
 }
