@@ -30,7 +30,10 @@ src:
       ├── .github/              # GitHub設定
       │   └── workflows/        # GitHub Actions
       │
-      ├── app/                  # Next.js アプリケーションルート
+      ├── docs/                 # 開発・機能ドキュメント 
+      │   └── 001_prisma_install.md    # 初期セッティング
+      │
+      ├── app/                 # Next.js アプリケーションルート
       │   ├── (auth)/          # 認証関連ページ
       │   ├── (dashboard)/     # ダッシュボード関連ページ
       │   ├── api/             # APIルート
