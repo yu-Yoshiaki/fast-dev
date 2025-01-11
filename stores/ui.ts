@@ -1,16 +1,11 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
 
-interface UIState {
-  isSidebarOpen: boolean
-  isLoading: boolean
-  setIsSidebarOpen: (isOpen: boolean) => void
-  setIsLoading: (isLoading: boolean) => void
-}
+type UIStore = {
+  isLoading: boolean;
+  setLoading: (loading: boolean) => void;
+};
 
-export const useUIStore = create<UIState>((set) => ({
-  isSidebarOpen: false,
+export const useUIStore = create<UIStore>(set => ({
   isLoading: false,
-  setIsSidebarOpen: (isOpen) => set({ isSidebarOpen: isOpen }),
-  setIsLoading: (isLoading) => set({ isLoading: isLoading }),
-}))
-
+  setLoading: loading => set({ isLoading: loading }),
+}));
